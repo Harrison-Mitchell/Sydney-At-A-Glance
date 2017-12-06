@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="shortcut icon" type="image/png" href="assets/img/iconT.png"/>
+    <title>Sydney at a Glance</title>
+  </head>
+  <body>
+    <div id="panel">
+      <div id="panel-main">
+        <div class="title"><h1>Main</h1></div>
+		<p id="ohelp">Pan the map with a mouse drag, zoom with the mousewheel, select which vehicles to display in "to display", customize colors and map styles in "customize" and ensure all APIs are running smoothly with "API Status".</p>
+        <div class="footer">
+          <div class="buttons">
+            <div class="button" id="to-vehicles"><p class="button-text">To Display</p></div>
+            <div class="button" id="to-custom"><p class="button-text">Customize</p></div>
+            <div class="button" id="to-status"><p class="button-text">API Status</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="panel-info">
+        <div class="title"><h1>Information</h1></div>
+        <div id="info-table">
+          <table>
+            <tr>
+              <td colspan="2">
+                <span>Information updates every 20s</span>
+              </td>
+            </tr>
+            <tr><td>Start time:</td><td></td></tr>
+            <tr><td>Latitude:</td><td></td></tr>
+            <tr><td>Longitude:</td><td></td></tr>
+            <tr><td>K/ph:</td><td></td></tr>
+            <tr><td>Status:</td><td></td></tr>
+            <tr><td>Traffic:</td><td></td></tr>
+            <tr><td>Occupany:</td><td></td></tr>
+            <tr><td>Direction:</td><td></td></tr>
+            <tr><td>Wheelchair access:</td><td></td></tr>
+            <tr><td>Direction:</td><td></td></tr>
+            <tr><td>Headsign:</td><td></td></tr>
+            <tr><td>Route short description:</td><td></td></tr>
+            <tr><td>Route description:</td><td></td></tr>
+            <tr><td>Agency:</td><td></td></tr>
+            <tr><td>Monday:</td><td></td></tr>
+            <tr><td>Tuesday:</td><td></td></tr>
+            <tr><td>Wednesday:</td><td></td></tr>
+            <tr><td>Thursday:</td><td></td></tr>
+            <tr><td>Friday:</td><td></td></tr>
+            <tr><td>Saturday:</td><td></td></tr>
+            <tr><td>Sunday:</td><td></td></tr>
+          </table>
+        </div>
+        <div class="footer">
+          <div class="buttons">
+            <div class="button" id="to-main1"><p class="button-text back">Back</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="panel-vehicles">
+        <div class="title"><h1>To Display</h1></div>
+        <div class="vehicle-item">
+          <input id="sydneyTrainsCheck" type="checkbox" onclick="vehicleTypesChanged(this)"> Sydney Trains
+          <span class="count" id="sydneytrains-count">0</span><br>
+        </div>
+        <div class="vehicle-item">
+          <input id="nswTrainsCheck" type="checkbox" onclick="vehicleTypesChanged(this)" checked="yes"> NSW Trains
+          <span class="count" id="nswtrains-count">0</span><br>
+        </div>
+        <div class="vehicle-item">
+          <input id="lightRailCheck" type="checkbox" onclick="vehicleTypesChanged(this)"> Light Rail
+          <span class="count" id="lightrail-count">0</span><br>
+        </div>
+        <div class="vehicle-item">
+          <input id="ferriesCheck" type="checkbox" onclick="vehicleTypesChanged(this)" checked="yes"> Ferries
+          <span class="count" id="ferries-count">0</span><br>
+        </div>
+        <div class="vehicle-item">
+          <input id="busesCheck" type="checkbox" onclick="vehicleTypesChanged(this)"> Buses
+          <span class="count" id="buses-count">0</span><br>
+        </div>
+        <div class="vehicle-item">
+          <input id="camCheck" type="checkbox" onclick="toggleCams()"> Traffic Cameras
+          <span class="count" id="cam-count">0</span><br>
+        </div>
+        <div class="footer">
+          <div class="buttons">
+            <div class="button" id="to-main3"><p class="button-text back">Back</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="panel-status">
+        <div class="title"><h1>API status</h1></div>
+        <div id="statuses"></div>
+        <div class="footer">
+          <div class="buttons">
+            <div class="button" id="to-main4"><p class="button-text back">Back</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="panel-custom">
+        <div class="title"><h1>Customize</h1></div>
+        <div id="custom-container">
+          <div class="custom-header"><h1>Map Style</h1></div>
+          <div class="custom-content">
+            <div class="map-style" onclick="mapStyle('aubergine')">
+              <img src="assets/img/aubergine.png" alt="Apply aubergine" /><p>Aubergine</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('clean')">
+              <img src="assets/img/clean.png" alt="Apply clean" /><p>Clean</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('dark')">
+              <img src="assets/img/dark.png" alt="Apply dark" /><p>Dark</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('flat')">
+              <img src="assets/img/flat.png" alt="Apply flat" /><p>Flat</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('night')">
+              <img src="assets/img/night.png" alt="Apply night" /><p>Night</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('original')">
+              <img src="assets/img/original.png" alt="Apply original" /><p>Original</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('paper')">
+              <img src="assets/img/paper.png" alt="Apply paper" /><p>Paper</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('retro')">
+              <img src="assets/img/retro.png" alt="Apply retro" /><p>Retro</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('subtle')">
+              <img src="assets/img/subtle.png" alt="Apply subtle" /><p>Subtle</p>
+            </div>
+            <div class="map-style" onclick="mapStyle('own')">
+              <img src="assets/img/own.png" alt="Apply own" /><p>Import own</p>
+            </div>
+          </div>
+          <div style="clear: both;"></div>
+          <div class="custom-header"><h1>Sydney Trains Icons</h1></div>
+          <div class="custom-content">
+            <table>
+              <tr><td>Color:</td><td>
+                <input type="color" id="sydneytrains-color" defaultValue="#ff0000" value="#ff0000" onchange="customApply('sydneytrains')">
+              </td></tr>
+              <tr><td>Opacity:</td><td>
+                <input type="range" id="sydneytrains-opacity" defaultValue="1" value="1" min="0" max="1" step="0.1" onchange="customApply('sydneytrains')">
+              </td></tr>
+              <tr><td>Scale:</td><td>
+                <input type="range" id="sydneytrains-scale" defaultValue="2.5" value="2.5" min="0" max="5" step="0.5" onchange="customApply('sydneytrains')">
+              </td></tr>
+            </table>
+            <div class="custom-buttons">
+              <button type="button" onclick="customReset('sydneytrains')">Reset</button>
+              <button type="button" onclick="customRandom('sydneytrains')">Random</button>
+            </div>
+          </div>
+          <div class="custom-header"><h1>NSW Trains Icons</h1></div>
+          <div class="custom-content">
+            <table>
+              <tr><td>Color:</td><td>
+                <input type="color" id="nswtrains-color" defaultValue="#fffc00" value="#fffc00" onchange="customApply('nswtrains')">
+              </td></tr>
+              <tr><td>Opacity:</td><td>
+                <input type="range" id="nswtrains-opacity" defaultValue="1" value="1" min="0" max="1" step="0.1" onchange="customApply('nswtrains')">
+              </td></tr>
+              <tr><td>Scale:</td><td>
+                <input type="range" id="nswtrains-scale" defaultValue="2.5" value="2.5" min="0" max="5" step="0.5" onchange="customApply('nswtrains')">
+              </td></tr>
+            </table>
+            <div class="custom-buttons">
+              <button type="button" onclick="customReset('nswtrains')">Reset</button>
+              <button type="button" onclick="customRandom('nswtrains')">Random</button>
+            </div>
+          </div>
+          <div class="custom-header"><h1>Lightrail Icons</h1></div>
+          <div class="custom-content">
+            <table>
+              <tr><td>Color:</td><td>
+                <input type="color" id="lightrail-color" defaultValue="#05ff00" value="#05ff00" onchange="customApply('lightrail')">
+              </td></tr>
+              <tr><td>Opacity:</td><td>
+                <input type="range" id="lightrail-opacity" defaultValue="1" value="1" min="0" max="1" step="0.1" onchange="customApply('lightrail')">
+              </td></tr>
+              <tr><td>Scale:</td><td>
+                <input type="range" id="lightrail-scale" defaultValue="2.5" value="2.5" min="0" max="5" step="0.5" onchange="customApply('lightrail')">
+              </td></tr>
+            </table>
+            <div class="custom-buttons">
+              <button type="button" onclick="customReset('lightrail')">Reset</button>
+              <button type="button" onclick="customRandom('lightrail')">Random</button>
+            </div>
+          </div>
+          <div class="custom-header"><h1>Ferry Icons</h1></div>
+          <div class="custom-content">
+            <table>
+              <tr><td>Color:</td><td>
+                <input type="color" id="ferries-color" defaultValue="#00d9ff" value="#00d9ff" onchange="customApply('ferries')">
+              </td></tr>
+              <tr><td>Opacity:</td><td>
+                <input type="range" id="ferries-opacity" defaultValue="1" value="1" min="0" max="1" step="0.1" onchange="customApply('ferries')">
+              </td></tr>
+              <tr><td>Scale:</td><td>
+                <input type="range" id="ferries-scale" defaultValue="2.5" value="2.5" min="0" max="5" step="0.5" onchange="customApply('ferries')">
+              </td></tr>
+            </table>
+            <div class="custom-buttons">
+              <button type="button" onclick="customReset('ferries')">Reset</button>
+              <button type="button" onclick="customRandom('ferries')">Random</button>
+            </div>
+          </div>
+          <div class="custom-header"><h1>Bus Icons</h1></div>
+          <div class="custom-content">
+            <table>
+              <tr><td>Color:</td><td>
+                <input type="color" id="buses-color" defaultValue="#0021ff" value="#0021ff" onchange="customApply('buses')">
+              </td></tr>
+              <tr><td>Opacity:</td><td>
+                <input type="range" id="buses-opacity" defaultValue="1" value="1" min="0" max="1" step="0.1" onchange="customApply('buses')">
+              </td></tr>
+              <tr><td>Scale:</td><td>
+                <input type="range" id="buses-scale" defaultValue="2.5" value="2.5" min="0" max="5" step="0.5" onchange="customApply('buses')">
+              </td></tr>
+            </table>
+            <div class="custom-buttons">
+              <button type="button" onclick="customReset('buses')">Reset</button>
+              <button type="button" onclick="customRandom('buses')">Random</button>
+            </div>
+          </div>
+          <div class="custom-header"><h1>Camera Icons</h1></div>
+          <div class="custom-content">
+            <table>
+              <tr><td>Color:</td><td>
+                <input type="color" id="cams-color" defaultValue="#db00ff" value="#db00ff" onchange="customApply('cams')">
+              </td></tr>
+              <tr><td>Opacity:</td><td>
+                <input type="range" id="cams-opacity" defaultValue="1" value="1" min="0" max="1" step="0.1" onchange="customApply('cams')">
+              </td></tr>
+              <tr><td>Scale:</td><td>
+                <input type="range" id="cams-scale" defaultValue="2.5" value="2.5" min="0" max="5" step="0.5" onchange="customApply('cams')">
+              </td></tr>
+            </table>
+            <div class="custom-buttons">
+              <button type="button" onclick="customReset('cams')">Reset</button>
+              <button type="button" onclick="customRandom('cams')">Random</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="buttons">
+            <div class="button" id="to-main2"><p class="button-text back">Back</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="recenter" onclick="recenter()"><img src="assets/img/center.png" alt="recenter"/></div>
+		<div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<API KEY HERE>"></script>
+    <script src="assets/scripts/cameraHelper.js" type="text/javascript"></script>
+    <script src="assets/scripts/camInfo.js" type="text/javascript"></script>
+    <script src="assets/scripts/customizer.js" type="text/javascript"></script>
+    <script src="assets/scripts/dataStopsShapes.js" type="text/javascript"></script>
+
+
+    <script src="assets/scripts/serverBridge.js" type="text/javascript"></script>
+    <script src="assets/scripts/updated.js" type="text/javascript"></script>
+    <script src="assets/scripts/vehicleHelper.js" type="text/javascript"></script>
+    <script src="assets/scripts/main.js" type="text/javascript"></script>
+    <script src="assets/scripts/init.js" type="text/javascript"></script>
+  </body>
+</html>
