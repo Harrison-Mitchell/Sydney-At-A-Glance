@@ -1,5 +1,5 @@
 # Sydney At A Glance
-See every public vehicle in Sydney moving live around a map with real time information on occupancy, traffic, whether the service catars for the disabled, what the next stop is etc...
+See every public vehicle in Sydney moving live around a map with real time information on occupancy, traffic, whether the service caters for the disabled, what the next stop is etc...
 
 This project was done for my High School Software Design and Development major work in which I recieved full marks and inherently topped the class. If you're interested in seeing a loosly reflective logbook, psudocode and more, I've included what I handed in as part of the major work in the `documentation` folder.
 
