@@ -10,7 +10,7 @@ print("Downloading about 120mb of timetables and stops")
 for i in types:
 	try:
 		url = 'https://api.transport.nsw.gov.au/v1/gtfs/schedule/' + i
-		headers = {"Authorization": "apikey l7xxdd534960a59c41b2b645de58f795a81b"}
+		headers = {"Authorization": "<APIKEY>"}
 		req = urllib.request.Request(url, headers = headers)
 		with urllib.request.urlopen(req) as response:
 			with open(i + ".zip", 'wb') as out_file:
