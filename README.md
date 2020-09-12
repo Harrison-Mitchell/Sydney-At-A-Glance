@@ -5,7 +5,7 @@ This project was done for my High School Software Design and Development major w
 
 ### Dependencies
 * Python >= 3.5
-* NODEJS
+* Node.js
 
 ### Installation
 * `pip install pandas`
